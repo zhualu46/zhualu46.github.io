@@ -4,226 +4,355 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex,nofollow">
-
-  <title>OptGuard-SVC — Audio Samples</title>
+  <title>OptGuard-SVC - Representative Audio Samples</title>
 
   <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2937;
+      --muted: #5f6b7a;
+      --blue: #173f6d;
+      --blue-light: #eef5fc;
+      --green-light: #eff9f1;
+      --line: #d9e1e8;
+      --page: #f5f7fa;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 24px;
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
       font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
-      color: #222;
     }
 
-    h1, h2 {
-      color: #17365d;
+    main {
+      width: min(1380px, calc(100% - 36px));
+      margin: 36px auto 56px;
     }
 
-    .note {
-      padding: 14px 18px;
-      background: #f4f7fa;
-      border-left: 4px solid #527aa3;
+    header {
       margin-bottom: 28px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(25, 45, 70, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    header p {
+      max-width: 920px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    section {
+      margin-top: 28px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: 0 8px 24px rgba(25, 45, 70, 0.05);
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      color: var(--blue);
+      font-size: 25px;
+    }
+
+    .description {
+      max-width: 1050px;
+      margin: 0 0 20px;
+      color: var(--muted);
     }
 
     .table-wrapper {
       overflow-x: auto;
-      margin-bottom: 42px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
     }
 
     table {
       width: 100%;
+      min-width: 1160px;
       border-collapse: collapse;
-      min-width: 950px;
     }
 
-    th, td {
-      border: 1px solid #d8d8d8;
-      padding: 12px;
+    th,
+    td {
+      padding: 15px 12px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
       text-align: center;
       vertical-align: middle;
     }
 
-    th {
-      background: #edf2f7;
+    th:last-child,
+    td:last-child {
+      border-right: 0;
     }
 
-    td:first-child {
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    th {
+      background: var(--blue-light);
+      color: #163b64;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+    }
+
+    td.sample-info {
+      min-width: 185px;
       text-align: left;
-      min-width: 140px;
+    }
+
+    .sample-number {
+      display: block;
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .sample-condition {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    td.ours {
+      background: var(--green-light);
     }
 
     audio {
       width: 210px;
-    }
-
-    .ours {
-      background: #f1f8f1;
+      max-width: 100%;
+      vertical-align: middle;
     }
 
     footer {
-      margin-top: 50px;
-      color: #666;
+      margin-top: 26px;
+      color: var(--muted);
+      text-align: center;
       font-size: 14px;
+    }
+
+    @media (max-width: 700px) {
+      main {
+        width: min(100% - 20px, 1380px);
+        margin-top: 10px;
+      }
+
+      header,
+      section {
+        padding: 20px;
+        border-radius: 10px;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>OptGuard-SVC: Representative Audio Samples</h1>
+  <main>
+    <header>
+      <h1>OptGuard-SVC: Representative Audio Samples</h1>
+    </header>
 
-  <div class="note">
-    This anonymous page provides representative audio samples for direct
-    inspection. All samples are presented using the same sampling rate and
-    without loudness normalization or post-processing.
-  </div>
+    <section>
+      <h2>1. Normal Conversion Utility</h2>
 
-  <h2>1. Normal Conversion Utility</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Sample / Condition</th>
+              <th>Source</th>
+              <th>Target Reference</th>
+              <th>NeuCoSVC</th>
+              <th>OptGuard-SVC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 1</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/normal_cn_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_cn_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_cn_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/normal_cn_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 2</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/normal_cn_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_cn_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_cn_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/normal_cn_partial_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 3</span>
+                <span class="sample-condition">NUS48E (English) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/normal_en_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_en_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_en_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/normal_en_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 4</span>
+                <span class="sample-condition">NUS48E (English) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/normal_en_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_en_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/normal_en_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/normal_en_partial_ours.wav"></audio></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <p>
-    For unprotected requests, OptGuard-SVC should preserve the conversion
-    quality and target-singer similarity of the NeuCoSVC backbone.
-  </p>
+    <section>
+      <h2>2. Protected Target Singer</h2>
 
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Example</th>
-          <th>Source</th>
-          <th>Target Reference</th>
-          <th>NeuCoSVC</th>
-          <th>OptGuard-SVC</th>
-        </tr>
-      </thead>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Sample / Condition</th>
+              <th>Source</th>
+              <th>Protected Target</th>
+              <th>NeuCoSVC</th>
+              <th>OptGuard-SVC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 1</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/singer_cn_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_cn_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_cn_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/singer_cn_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 2</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/singer_cn_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_cn_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_cn_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/singer_cn_partial_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 3</span>
+                <span class="sample-condition">NUS48E (English) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/singer_en_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_en_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_en_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/singer_en_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 4</span>
+                <span class="sample-condition">NUS48E (English) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/singer_en_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_en_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/singer_en_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/singer_en_partial_ours.wav"></audio></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-      <tbody>
-        <tr>
-          <td>OpenSinger-01</td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/normal_01_source.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/normal_01_target.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/normal_01_baseline.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td class="ours">
-            <audio controls preload="none">
-              <source src="./audio/normal_01_ours.wav" type="audio/wav">
-            </audio>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <section>
+      <h2>3. Protected Source Song</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Sample / Condition</th>
+              <th>Protected Source</th>
+              <th>Target Reference</th>
+              <th>NeuCoSVC</th>
+              <th>OptGuard-SVC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 1</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/song_cn_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_cn_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_cn_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/song_cn_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 2</span>
+                <span class="sample-condition">OpenSinger (Chinese) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/song_cn_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_cn_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_cn_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/song_cn_partial_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 3</span>
+                <span class="sample-condition">NUS48E (English) - Whole song</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/song_en_whole_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_en_whole_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_en_whole_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/song_en_whole_ours.wav"></audio></td>
+            </tr>
+            <tr>
+              <td class="sample-info">
+                <span class="sample-number">Sample 4</span>
+                <span class="sample-condition">NUS48E (English) - Partial clip</span>
+              </td>
+              <td><audio controls preload="none" src="./audio/song_en_partial_source.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_en_partial_target.wav"></audio></td>
+              <td><audio controls preload="none" src="./audio/song_en_partial_baseline.wav"></audio></td>
+              <td class="ours"><audio controls preload="none" src="./audio/song_en_partial_ours.wav"></audio></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <h2>2. Protected Target Singer</h2>
-
-  <p>
-    When the target reference belongs to a protected singer, OptGuard-SVC
-    activates the ASV-guided identity-repulsion pathway and suppresses the
-    protected singer identity.
-  </p>
-
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Example</th>
-          <th>Source</th>
-          <th>Protected Target</th>
-          <th>NeuCoSVC</th>
-          <th>OptGuard-SVC</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>OpenSinger-02</td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/singer_01_source.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/singer_01_target.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/singer_01_baseline.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td class="ours">
-            <audio controls preload="none">
-              <source src="./audio/singer_01_ours.wav" type="audio/wav">
-            </audio>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>3. Protected Source Song</h2>
-
-  <p>
-    When a protected source song is detected, OptGuard-SVC activates temporal
-    feature scrambling, disrupting lyric intelligibility and musical continuity.
-  </p>
-
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>Example</th>
-          <th>Protected Source</th>
-          <th>Target Reference</th>
-          <th>NeuCoSVC</th>
-          <th>OptGuard-SVC</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td>NUS48E-01</td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/song_01_source.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/song_01_target.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td>
-            <audio controls preload="none">
-              <source src="./audio/song_01_baseline.wav" type="audio/wav">
-            </audio>
-          </td>
-          <td class="ours">
-            <audio controls preload="none">
-              <source src="./audio/song_01_ours.wav" type="audio/wav">
-            </audio>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <footer>
-    Anonymous supplementary material for peer review.
-  </footer>
+    <footer>Anonymous supplementary material for peer review.</footer>
+  </main>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"45c2bf8136a245cd97f1c2e9a96c0730"}' crossorigin="anonymous"></script>
 </body>
 </html>
